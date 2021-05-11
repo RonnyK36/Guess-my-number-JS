@@ -26,7 +26,7 @@ document.querySelector('.check').addEventListener('click', function() {
     if (!guess) {
         document.querySelector('.message').textContent = '💔 No number';
     } else if (guess === theNumber) {
-        document.querySelector('.message').textContent = 'Correct number 🤩🥰😋';
+        document.querySelector('.message').textContent = 'Correct😋 number 🤩🥰😋';
         document.querySelector('.number').textContent = theNumber;
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
@@ -35,23 +35,25 @@ document.querySelector('.check').addEventListener('click', function() {
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
         }
-
-    } else if (guess > theNumber) {
+    } else if (guess !== theNumber) {
         if (score > 0) {
-            document.querySelector('.message').textContent = 'Too high 🙄🙄🙄🙄🙄';
+            document.querySelector('.message').textContent = guess > theNumber ? 'Too high 🙄🙄🙄🙄🙄' : 'Too low 🙄🙄🙄😶';
             score--;
             document.querySelector('.score').textContent = score;
         } else {
             document.querySelector('.message').textContent = 'Your lose 🤣😂😂';
         }
-
-    } else if (guess < theNumber) {
-        if (score > 0) {
-            document.querySelector('.message').textContent = 'Too low 🙄🙄🙄😶';
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.message').textContent = 'You lose';
-        }
     }
+    // else if (guess > theNumber) {
+
+
+    // } else if (guess < theNumber) {
+    //     if (score > 0) {
+    //         document.querySelector('.message').textContent = 'Too low 🙄🙄🙄😶';
+    //         score--;
+    //         document.querySelector('.score').textContent = score;
+    //     } else {
+    //         document.querySelector('.message').textContent = 'You lose';
+    //     }
+    // }
 });
